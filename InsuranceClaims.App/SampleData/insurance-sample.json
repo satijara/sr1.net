@@ -1,0 +1,51 @@
+[
+  {
+    "policyHolder": "ТОВ \"Логістик Транс\"",
+    "policies": [
+      {
+        "policyNumber": "POL-99201-UKR",
+        "coverageAmount": 500000.0,
+        "claims": [
+          { "incidentDate": "2026-08-15", "payoutAmount": 12000.0, "status": "Approved" },
+          { "incidentDate": "2026-09-02", "payoutAmount": 2500.0, "status": "Pending" },
+          { "incidentDate": "2026-10-10", "payoutAmount": 0.0, "status": "Approved" }
+        ]
+      },
+      {
+        "policyNumber": "POL-99202-UKR",
+        "coverageAmount": 20000.0,
+        "claims": [
+          { "incidentDate": "2026-10-01", "payoutAmount": 26000.0, "status": "Approved" },
+          { "incidentDate": "2026-10-12", "payoutAmount": 0.0, "status": "Rejected" }
+        ]
+      }
+    ]
+  },
+  {
+    "policyHolder": "ПрАТ \"Міський сервіс\"",
+    "policies": [
+      {
+        "policyNumber": "POL-2026-10031",
+        "coverageAmount": 150000.0,
+        "claims": [
+          { "incidentDate": "2026-08-22", "payoutAmount": 45000.0, "status": "Approved" },
+          { "incidentDate": "2026-09-18", "payoutAmount": 32000.0, "status": "Approved" },
+          { "incidentDate": "2026-09-25", "payoutAmount": 6000.0, "status": "Rejected" }
+        ]
+      }
+    ]
+  },
+  {
+    "policyHolder": "ФОП Коваленко Андрій",
+    "policies": [
+      {
+        "policyNumber": "POL-2026-77110",
+        "coverageAmount": 80000.0,
+        "claims": [
+          { "incidentDate": "2026-11-02", "payoutAmount": 18000.0, "status": "Approved" },
+          { "incidentDate": "2026-11-05", "payoutAmount": 7000.0, "status": "Pending" }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,87 @@
+<Window x:Class="InsuranceClaims.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Аналітика страхової компанії"
+        Height="790" Width="1240" MinHeight="650" MinWidth="980"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource WindowBrush}">
+    <Grid Margin="16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{StaticResource AccentBrush}" CornerRadius="10" Padding="18" Margin="0,0,0,12">
+            <StackPanel>
+                <TextBlock Text="Страхова компанія" Foreground="White" FontSize="25" FontWeight="Bold" />
+                <TextBlock Text="Імпорт страхових полісів та аналітика виплат" Foreground="#F0F5EF" FontSize="13" Margin="0,4,0,0" />
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Background="White" CornerRadius="8" Padding="12" Margin="0,0,0,12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="JSON-файл:" VerticalAlignment="Center" Margin="0,0,8,0" />
+                <TextBox x:Name="JsonPathTextBox" Grid.Column="1" VerticalContentAlignment="Center" Padding="7" />
+                <Button Grid.Column="2" Content="Огляд..." Click="BrowseButton_Click" />
+                <Button x:Name="ImportButton" Grid.Column="3" Content="Імпортувати в БД" Click="ImportButton_Click" />
+                <Button x:Name="CancelImportButton" Grid.Column="4" Content="Скасувати" Click="CancelImportButton_Click" IsEnabled="False" Background="#8C5B55" />
+            </Grid>
+        </Border>
+
+        <TabControl Grid.Row="2" Background="White" Padding="8" Margin="0,0,0,86" Grid.RowSpan="2">
+            <TabItem Header="Перевищення страхового покриття">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Поліси, за якими сума схвалених виплат перевищує страхове покриття." TextWrapping="Wrap" Margin="4,4,4,8" />
+                    <DataGrid x:Name="CoverageBreachesGrid" Grid.Row="1" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Підозрілі страхові випадки">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Випадки з виплатою при статусі Pending/Rejected або Approved із нульовою виплатою." TextWrapping="Wrap" Margin="4,4,4,8" />
+                    <DataGrid x:Name="InconsistentClaimsGrid" Grid.Row="1" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Статистика за статусами">
+                <DataGrid x:Name="StatusStatisticsGrid" Margin="5" />
+            </TabItem>
+            <TabItem Header="Місячна статистика">
+                <DataGrid x:Name="MonthlyStatisticsGrid" Margin="5" />
+            </TabItem>
+        </TabControl>
+
+        <Border Grid.Row="3" Background="White" CornerRadius="8" Padding="10" Margin="0,108,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock x:Name="StatusTextBlock" Text="Готово до роботи. Оберіть JSON-файл для імпорту." TextWrapping="Wrap" />
+                    <TextBlock x:Name="SummaryTextBlock" Text="У базі поки немає імпортованих записів." FontWeight="SemiBold" Margin="0,5,0,0" />
+                    <TextBlock x:Name="DatabasePathTextBlock" FontSize="10" Foreground="#68736A" TextWrapping="Wrap" Margin="0,4,0,0" />
+                </StackPanel>
+                <Button Grid.Column="1" Content="Оновити аналітику" Click="RefreshButton_Click" VerticalAlignment="Center" />
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
